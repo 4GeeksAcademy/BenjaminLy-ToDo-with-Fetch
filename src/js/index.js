@@ -4,9 +4,12 @@ import ReactDOM from "react-dom";
 
 // include your styles into the webpack bundle
 import "../styles/index.css";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faX } from '@fortawesome/free-solid-svg-icons';
+library.add(faX);
 
 //import your own components
-import Home from "./component/home.jsx";
+import App from './App/App'
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+ReactDOM.render(<App />, document.querySelector("#app"));

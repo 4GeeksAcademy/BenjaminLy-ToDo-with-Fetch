@@ -10,3 +10,14 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+.body{
+    margin-top: 40px;
+}
+h1{
+    text-align: center;
+}
+
+ul li{
+    list-style: none;
+}
