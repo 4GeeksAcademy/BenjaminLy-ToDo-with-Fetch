@@ -6,9 +6,28 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 const App = () => {
     const url = "https://playground.4geeks.com/apis/fake/todos/user/benly1"
     const [taskList, setTaskList] = useState([])
+
+    useEffect(async () =>{
+        const response = await fetch(url)
+        const data = await response.json()
+        setTaskList(data.map((task) => task.label))
+    }, [])
+
     useEffect(() =>{
         console.log(taskList)
+        if (taskList.length){
+            fetch (url, {
+                method:'PUT',
+                headers: {
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(taskList.map((task) => {
+                    return {label: task, done: false}
+                }))
+            })
+        }
     } ,[taskList])
+
 
     const [task, setTask] = useState('')
     function addTasks(e) {
