@@ -1,12 +1,16 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
-    const [task, setTask] = useState('')
+    const url = "https://playground.4geeks.com/apis/fake/todos/user/benly1"
     const [taskList, setTaskList] = useState([])
+    useEffect(() =>{
+        console.log(taskList)
+    } ,[taskList])
 
+    const [task, setTask] = useState('')
     function addTasks(e) {
         if (e.key === 'Enter') {
             if (task === "") {
